@@ -1,0 +1,410 @@
+{
+    "inParis": {
+        "75": {
+            "libelle": "Paris",
+            "code": "75"
+        },
+        "77":{
+            "libelle": "Seine et Marne",
+            "code": "77"
+        },
+        "78":{
+            "libelle": "Yvelines",
+            "code": "78"
+        },
+        "91":{
+            "libelle": "Essone",
+            "code": "91"
+        },
+        "92": {
+            "libelle": "Hauts de Seine",
+            "code": "92"
+        },
+        "93": {
+            "libelle": "Seine Saint-Denis",
+            "code": "93"
+        },
+        "94": {
+            "libelle": "Val de Marne",
+            "code": "94"
+        },
+        "95": {
+            "libelle": "Val d'Oise",
+            "code": "95"
+        }
+    },
+    "outOfParis": {
+        "01": {
+            "libelle": "Ain",
+            "code": "01"
+        }, 
+        "02": {
+            "libelle": "Aisne",
+            "code": "02"
+        },
+        "03": {
+            "libelle": "Allier",
+            "code": "03"
+        },
+        "04": {
+            "libelle": "Alpes-de-Haute-Provence",
+            "code": "04"
+        },
+        "05": {
+            "libelle": "Hautes-Alpes",
+            "code": "05"
+        },
+        "06": {
+            "libelle": "Alpes-Maritimes",
+            "code": "06"
+        },
+        "07": {
+            "libelle": "Ardèche",
+            "code": "07"
+        },
+        "08": {
+            "libelle": "Ardennes",
+            "code": "08"
+        },
+        "09": {
+            "libelle": "Ariège",
+            "code": "09"
+        },
+        "10": {
+            "libelle": "Aube",
+            "code": "10"
+        },
+        "11": {
+            "libelle": "Aude",
+            "code": "11"
+        },
+        "12": {
+            "libelle": "Aveyron",
+            "code": "12"
+        },
+        "13": {
+            "libelle": "Bouches-du-Rhône",
+            "code": "13"
+        },
+        "14": {
+            "libelle": "Calvados",
+            "code": "14"
+        },
+        "15": {
+            "libelle": "Cantal",
+            "code": "15"
+        },
+        "16": {
+            "libelle": "Charente",
+            "code": "16"
+        },
+        "17": {
+            "libelle": "Charente-Maritime",
+            "code": "17"
+        },
+        "18": {
+            "libelle": "Cher",
+            "code": "18"
+        },
+        "19": {
+            "libelle": "Corrèze",
+            "code": "19"
+        },
+        "2A": {
+            "libelle": "Corse-duSud",
+            "code": "2A"
+        },
+        "2B": {
+            "libelle": "Haute-Corse",
+            "code": "2B"
+        },
+        "21": {
+            "libelle": "Côte-d'Or",
+            "code": "21"
+        },
+        "22": {
+            "libelle": "Côtes d'Armor",
+            "code": "22"
+        },
+        "23": {
+            "libelle": "Creuse",
+            "code": "23"
+        },
+        "24": {
+            "libelle": "Dordogne",
+            "code": "24"
+        },
+        "25": {
+            "libelle": "Doubs",
+            "code": "25"
+        },
+        "26": {
+            "libelle": "Drôme",
+            "code": "26"
+        },
+        "27": {
+            "libelle": "Eure",
+            "code": "27"
+        },
+        "28": {
+            "libelle": "Eure-et-Loir",
+            "code": "28"
+        },
+        "29": {
+            "libelle": "Finistère",
+            "code": "29"
+        },
+        "30": {
+            "libelle": "Gard",
+            "code": "30"
+        },
+        "31": {
+            "libelle": "Haute-Garonne",
+            "code": "31"
+        },
+        "32": {
+            "libelle": "Gers",
+            "code": "32"
+        },
+        "33": {
+            "libelle": "Gironde",
+            "code": "33"
+        },
+        "34": {
+            "libelle": "Hérault",
+            "code": "34"
+        },
+        "35": {
+            "libelle": "Île-et-Vilaine",
+            "code": "35"
+        },
+        "36": {
+            "libelle": "Indre",
+            "code": "36"
+        },
+        "37": {
+            "libelle": "Indre-et-Loire",
+            "code": "37"
+        },
+        "38": {
+            "libelle": "Isère",
+            "code": "38"
+        },
+        "39": {
+            "libelle": "Jura",
+            "code": "39"
+        },
+        "40": {
+            "libelle": "Landes",
+            "code": "40"
+        },
+        "41": {
+            "libelle": "Loir-et-Cher",
+            "code": "41"
+        },
+        "42": {
+            "libelle": "Loire",
+            "code": "42"
+        },
+        "43": {
+            "libelle": "Haute-Loire",
+            "code": "43"
+        },
+        "44": {
+            "libelle": "Loire-Atlantique",
+            "code": "44"
+        },
+        "45": {
+            "libelle": "Loiret",
+            "code": "45"
+        },
+        "46": {
+            "libelle": "Lot",
+            "code": "46"
+        },
+        "47": {
+            "libelle": "Lot-et-Garonne",
+            "code": "47"
+        },
+        "48": {
+            "libelle": "Lozère",
+            "code": "48"
+        },
+        "49": {
+            "libelle": "Maine-et-Loire",
+            "code": "49"
+        },
+        "50": {
+            "libelle": "Manche",
+            "code": "50"
+        },
+        "51": {
+            "libelle": "Marne",
+            "code": "51"
+        },
+        "52": {
+            "libelle": "Haute-Marne",
+            "code": "52"
+        },
+        "53": {
+            "libelle": "Mayenne",
+            "code": "53"
+        },
+        "54": {
+            "libelle": "Meurthe-et-Moselle",
+            "code": "54"
+        },
+        "55": {
+            "libelle": "Meuse",
+            "code": "55"
+        },
+        "56": {
+            "libelle": "Morbihan",
+            "code": "56"
+        },
+        "57": {
+            "libelle": "Moselle",
+            "code": "57"
+        },
+        "58": {
+            "libelle": "Nièvre",
+            "code": "58"
+        },
+        "59": {
+            "libelle": "Nord",
+            "code": "59"
+        },
+        "60": {
+            "libelle": "Oise",
+            "code": "60"
+        },
+        "61": {
+            "libelle": "Orne",
+            "code": "61"
+        },
+        "62": {
+            "libelle": "Pas-de-Calais",
+            "code": "62"
+        },
+        "63": {
+            "libelle": "Puy-de-Dôme",
+            "code": "63"
+        },
+        "64": {
+            "libelle": "Pyrénées-Atlantiques",
+            "code": "64"
+        },
+        "65": {
+            "libelle": "Hautes-Pyrénées",
+            "code": "65"
+        },
+        "66": {
+            "libelle": "Pyrénées-Orientales",
+            "code": "66"
+        },
+        "67": {
+            "libelle": "Bas-Rhin",
+            "code": "67"
+        },
+        "68": {
+            "libelle": "Haut-Rhin",
+            "code": "68"
+        },
+        "69": {
+            "libelle": "Rhône",
+            "code": "69"
+        },
+        "70": {
+            "libelle": "Haute-Saône",
+            "code": "70"
+        },
+        "71": {
+            "libelle": "Saône-et-Loire",
+            "code": "71"
+        },
+        "72": {
+            "libelle": "Sarthe",
+            "code": "72"
+        },
+        "73": {
+            "libelle": "Savoie",
+            "code": "73"
+        },
+        "74": {
+            "libelle": "Haute-Savoie",
+            "code": "74"
+        },
+        "76": {
+            "libelle": "Seine-Maritime",
+            "code": "76"
+        },
+        "79": {
+            "libelle": "Deux-Sèvres",
+            "code": "79"
+        },
+        "80": {
+            "libelle": "Somme",
+            "code": "80"
+        },
+        "81": {
+            "libelle": "Tarn",
+            "code": "81"
+        },
+        "82": {
+            "libelle": "Tarn-et-Garonne",
+            "code": "82"
+        },
+        "83": {
+            "libelle": "Var",
+            "code": "83"
+        },
+        "84": {
+            "libelle": "Vaucluse",
+            "code": "84"
+        },
+        "85": {
+            "libelle": "Vendée",
+            "code": "85"
+        },
+        "86": {
+            "libelle": "Vienne",
+            "code": "86"
+        },
+        "87": {
+            "libelle": "Haute-Vienne",
+            "code": "87"
+        },
+        "88": {
+            "libelle": "Vosges",
+            "code": "88"
+        },
+        "89": {
+            "libelle": "Yonne",
+            "code": "89"
+        },
+        "90": {
+            "libelle": "Territoire-de-Belfort",
+            "code": "90"
+        },
+        "971": {
+            "libelle": "Guadeloupe",
+            "code": "971"
+        },
+        "972": {
+            "libelle": "Martinique",
+            "code": "972"
+        },
+        "973": {
+            "libelle": "Guyanne",
+            "code": "973"
+        },
+        "974": {
+            "libelle": "La Réunion",
+            "code": "974"
+        },
+        "976": {
+            "libelle": "Mayotte",
+            "code": "976"
+        }
+    }
+}
