@@ -1,5 +1,6 @@
-import { useEffect, useState, useRef } from "react";
-import energieImage from "../../assets/energieImage.jpg"
+import { useState, useRef } from "react";
+import firstImage from "../../assets/content/1.png"
+import secondImage from "../../assets/content/2.jpg"
 import Separator from "../Separator"
 import CounterItem from "./CounterItem"
 import useOnScreen from '../../hook/useOnScreen'
@@ -15,12 +16,13 @@ export default function FirstContent(){
     
 
     return(
-        <div className="flex flex-col gap-y-5 -mt-4 md:max-w-[1140px] md:flex-row md:items-center md:mx-auto md:gap-x-5">
-            <div className="w-[full] md:w-[33%]">
-                <img src={energieImage} alt="energie" className="md:rounded-lg"/>
+        <div className="flex flex-col gap-y-5 -mt-4 py-5 md:max-w-[1140px] md:mx-auto md:py-10">
+            <div className="w-[full] flex flex-col gap-y-10 md:flex-row md:gap-x-6 px-6">
+                <img src={firstImage} alt="energie" className="w-full md:rounded-lg md:w-[50%] md:-ml-8"/>
+                <img src={secondImage} alt="energie" className="w-full md:rounded-lg md:w-[50%]"/>
             </div>
 
-            <div className="gap-y-5 flex flex-col items-center w-full md:w-[66%]" ref={myRef}>
+            <div className="gap-y-5 flex flex-col items-center w-full md:w-[66%] mx-auto pt-6" ref={myRef}>
 
                 <div>
                     <h2 className="leading-[30px] text-center text-[30px] text-dark-blue font-semibold">
