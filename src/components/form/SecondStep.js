@@ -10,7 +10,6 @@ import {numberWithSpaces} from '../../libs/numberWithSpaces'
 export default function SecondStep({currentStep, setCurrentStep, region, setRegion, dep, setDep, personInCharge, setPersonInCharge, earning, setEarning}){
     const [earningChoice, setEarningChoice] = useState(undefined)
     const [earningResult, setEarningResult] = useState()
-    console.log(earning);
 
     const onChange = (e) => {
         if(e.target.value === ""){
@@ -44,7 +43,6 @@ export default function SecondStep({currentStep, setCurrentStep, region, setRegi
         }
     }, [personInCharge, region, earningChoice])
 
-    console.log();
 
     return(
         <div id="step-2" className="text-start flex flex-col gap-y-1.5">

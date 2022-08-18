@@ -75,6 +75,7 @@ export default function Hero({routes}){
     }, [imageActive])
 
     const submitForm = () => {
+        let nombre_personne_a_charge = personInCharge + 1
         
         if(propertyType !== undefined && situation !== undefined && heatingType !== undefined &&
         region !== undefined && dep !== undefined && personInCharge !== undefined && earning !== 
@@ -86,7 +87,7 @@ export default function Hero({routes}){
                 tel: tel,
                 region: region,
                 departement: dep,
-                nombre_personne_a_charge: personInCharge,
+                nombre_personne_a_charge: nombre_personne_a_charge,
                 revenu_total_foyer_fiscal: earning,
                 type_proprietee: propertyType,
                 situation: situation,
