@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import firstImage from "../../assets/content/1.png"
-import secondImage from "../../assets/content/2.jpg"
+import secondImage from "../../assets/content/2.png"
 import Separator from "../Separator"
 import CounterItem from "./CounterItem"
 import useOnScreen from '../../hook/useOnScreen'
@@ -18,8 +18,8 @@ export default function FirstContent(){
     return(
         <div className="flex flex-col gap-y-5 -mt-4 py-5 md:max-w-[1140px] md:mx-auto md:py-10">
             <div className="w-[full] flex flex-col gap-y-10 md:flex-row md:gap-x-6 px-6">
-                <img src={firstImage} alt="energie" className="w-full md:rounded-lg md:w-[50%] md:-ml-8"/>
-                <img src={secondImage} alt="energie" className="w-full md:rounded-lg md:w-[50%]"/>
+                <img src={firstImage} alt="energie" className="w-full md:rounded-lg md:w-[50%] md:bg-slate-200 md:bg-opacity-20 drop-shadow-2xl"/>
+                <img src={secondImage} alt="energie" className="w-full md:rounded-lg md:w-[50%] md:bg-slate-200 md:bg-opacity-20 drop-shadow-2xl object-cover" />
             </div>
 
             <div className="gap-y-5 flex flex-col items-center w-full md:w-[66%] mx-auto pt-6" ref={myRef}>
