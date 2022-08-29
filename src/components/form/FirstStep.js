@@ -72,7 +72,7 @@ export default function FirstStep({currentStep, setCurrentStep, propertyType, se
                     setValueFunc={setHeatingType}/>
                     <RowItem firstImg={fioul} firstTitle={"Au fioul"} firstLibelle={"fioul"} secondImg={gaz} secondTitle={"Au gaz"} secondLibelle={"gaz"} value={heatingType}
                     setValueFunc={setHeatingType}/>
-                    <RowItem firstImg={courant} firstTitle={"Électrique"} firstLibelle={"electrique"} secondImg={pompe} secondTitle={"Autre"} secondLibelle={"Autre"} value={heatingType}
+                    <RowItem firstImg={courant} firstTitle={"Électrique"} firstLibelle={"electrique"} secondImg={pompe} secondTitle={"Autre"} secondLibelle={"autre"} value={heatingType}
                     setValueFunc={setHeatingType}/>
                 </div>
 
