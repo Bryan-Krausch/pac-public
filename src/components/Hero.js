@@ -119,7 +119,7 @@ export default function Hero({routes}){
                 <div className="md:w-[58%] md:space-y-5">
                     <div className="w-full px-[10px] md:p-0">
                         <div className="pt-0 p-[21px] md:p-0">
-                            <h1 className="text-[36px] text-white font-[550] text-center leading-[40px] md:text-start md:text-[40px]">Bénéficiez d'une pompe à chaleur pour 1€</h1>
+                            <h1 className="text-[36px] text-white font-medium text-center leading-[40px] md:text-start md:text-[38px]">Bénéficiez d'une pompe à chaleur pour 1€</h1>
                         </div>
                     </div>
                     <div className="bg-white p-4 md:p-[29px] w-full rounded-lg -mt-3 md:mt-0">
@@ -218,7 +218,7 @@ export default function Hero({routes}){
 
                 <div className="gap-y-5 px-[24px] md:px-[10px] md:w-[42%] md:flex-col md:items-center md:justify-center md:h-full ">
                     <div className="pb-5">
-                        <h1 className="text-white text-left text-[30px] font-bold leading-[60px] md:text-[38px]">
+                        <h1 className="text-white text-left text-[30px] font-bold leading-[50px] md:text-[2.7rem]">
                             Pourquoi installer une pompe à chaleur ?
                         </h1>
                     </div>
@@ -259,7 +259,7 @@ export default function Hero({routes}){
                         </div>
                     </div>
 
-                    <div className="mt-7 flex items-center justify-start mb-[48px] w-full">
+                    <div className="mt-7 flex items-center justify-start mb-[48px] w-full hover:scale-125">
                         <a href="#hero" className="bg-light-green px-[33px] py-[10px] mx-auto inline-block">
                             <span className="text-white flex justify-center md:items-center">
                                 <span className="text-[21px] md:text-[25px] mr-4"><FontAwesomeIcon icon={faClipboardCheck}/></span>

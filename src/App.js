@@ -34,24 +34,24 @@ function App({routes}) {
         <div className="w-full flex flex-col items-center gap-y-8 pb-[64px] md:flex-row md:gap-x-[67px] md:gap-y-0 md:max-w-[1140px] md:mx-auto">
               <div className="text-center max-w-full md:w-[20%]">
                   <img width={1848} height={674} src={atlantic} alt='atlantic' 
-                  className="w-[45%] inline-block box-border align-middle grayscale md:w-full"
+                  className="w-[45%] inline-block box-border align-middle grayscale md:w-full hover:grayscale-0"
                   />
               </div>
 
               <div className="w-full text-center md:w-[20%]">
-                  <img src={bosh} alt='bosh' className="w-[45%] inline-block box-border align-middle grayscale md:w-full"/>
+                  <img src={bosh} alt='bosh' className="w-[45%] inline-block box-border align-middle grayscale md:w-full hover:grayscale-0" />
               </div>
 
               <div className="w-full text-center md:w-[20%]">
-                  <img src={daikin} alt='daikin' className="w-[45%] inline-block box-border align-middle grayscale md:w-full"/>
+                  <img src={daikin} alt='daikin' className="w-[45%] inline-block box-border align-middle grayscale md:w-full hover:grayscale-0"/>
               </div>
 
                 <div className="w-full text-center md:w-[20%]">
-                  <img src={dietrich} alt='De dietrich' className="w-[45%] inline-block box-border align-middle grayscale md:w-full"/>
+                  <img src={dietrich} alt='De dietrich' className="w-[45%] inline-block box-border align-middle grayscale md:w-full hover:grayscale-0"/>
               </div>
 
               <div className="w-full text-center md:w-[20%]">
-                  <img src={mitsubishi} alt='EdilKamin' className="w-[45%] inline-block box-border align-middle grayscale md:w-full"/>
+                  <img src={mitsubishi} alt='EdilKamin' className="w-[45%] inline-block box-border align-middle grayscale md:w-full hover:grayscale-0"/>
               </div>
 
       </div>
