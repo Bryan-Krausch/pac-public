@@ -55,10 +55,11 @@ export default function SecondStep({currentStep, setCurrentStep, region, setRegi
                 <div className="md:w-2/4">
                     <div><span className="text-dark-blue text-[17px] font-semibold tracking-wide ">Région</span><span className="text-light-green font-[17px] font-semibold">*</span></div>
                     <div>
-                        <select className="py-[8px] px-[16px] w-full border-[1px] border-dark-blue md:px-[5px]" onChange={onChange}>
+                        <select className="py-[8px] px-[16px] w-full border-[1px] border-dark-blue md:px-[5px]" onChange={onChange} defaultValue={region ? region: ""}>
                             <option className="text-dark-blue" value={""}>-- Sélectionner --</option>
-                            <option className="text-dark-blue" value={"inParis"}>Île de France</option>
-                            <option className="text-dark-blue" value={"outOfParis"}>Hors Île de France</option>
+                                <option className="text-dark-blue" value={"inParis"}>Île de France</option>  
+                                <option className="text-dark-blue" value={"outOfParis"}>Hors Île de France</option>
+                            }
                         </select>
                     </div>
                 </div>
@@ -71,7 +72,7 @@ export default function SecondStep({currentStep, setCurrentStep, region, setRegi
                     <div>
                         <select 
                             className="py-[8px] px-[16px] w-full border-[1px] border-dark-blue" 
-                            defaultValue={0}
+                            defaultValue={personInCharge ? personInCharge: 0}
                             onChange={(e) => {
                                 setPersonInCharge(e.target.value)
                             }}

@@ -45,6 +45,8 @@ export default function Hero({routes}){
     const [isValidEmail, setIsValidEmail] = useState(false)
     const [isValidTel, setIsValidTel] = useState(false)
 
+    console.log({currentStep, propertyType, situation, heatingType, region, dep, personInCharge, earning, prenom, nom, email, tel});
+
     if(propertyType !== undefined && situation !== undefined && heatingType !== undefined && currentStep === 1 && region === undefined && next === false ){
         setNext(true)
         setCurrentStep(2)
@@ -119,7 +121,7 @@ export default function Hero({routes}){
                 <div className="md:w-[58%] md:space-y-5">
                     <div className="w-full px-[10px] md:p-0">
                         <div className="pt-0 p-[21px] md:p-0">
-                            <h1 className="text-[36px] text-white font-medium text-center leading-[40px] md:text-start md:text-[38px]">Bénéficiez d'une pompe à chaleur pour 1€</h1>
+                            <h1 className="text-[36px] text-white font-medium text-center leading-[40px] md:text-start md:text-[38px]">Calculez vos aides pour une pompe à chaleur</h1>
                         </div>
                     </div>
                     <div className="bg-white p-4 md:p-[29px] w-full rounded-lg -mt-3 md:mt-0">

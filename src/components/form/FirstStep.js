@@ -72,14 +72,14 @@ export default function FirstStep({currentStep, setCurrentStep, propertyType, se
                     setValueFunc={setHeatingType}/>
                     <RowItem firstImg={fioul} firstTitle={"Au fioul"} firstLibelle={"fioul"} secondImg={gaz} secondTitle={"Au gaz"} secondLibelle={"gaz"} value={heatingType}
                     setValueFunc={setHeatingType}/>
-                    <RowItem firstImg={courant} firstTitle={"Électrique"} firstLibelle={"electrique"} secondImg={pompe} secondTitle={"Pompe à chaleur"} secondLibelle={"pompe-a-chaleur"} value={heatingType}
+                    <RowItem firstImg={courant} firstTitle={"Électrique"} firstLibelle={"electrique"} secondImg={pompe} secondTitle={"Autre"} secondLibelle={"Autre"} value={heatingType}
                     setValueFunc={setHeatingType}/>
                 </div>
 
             </div>
             :
             <div>
-                {(propertyType !== undefined && situation !== undefined && !isValid) && 
+                {(propertyType !== undefined && situation !== undefined && !isValid ) && 
                     <div>
                         <p className="text-red-500 font-semibold text-center">Désolé, les aides ne concernent que les propriétaires de maison.</p>
                     </div>
@@ -87,8 +87,14 @@ export default function FirstStep({currentStep, setCurrentStep, propertyType, se
             </div>
             }
 
+            {(propertyType !== undefined && situation !== undefined && isValid && heatingType && heatingType === "electrique") &&
+                <div>
+                    <p className="text-red-500 font-semibold text-center">Désolé, les aides concernent uniquement les types de chauffage aux combustible.</p>
+                </div>
+            }
+
             <div>
-                {(propertyType && situation && heatingType) &&
+                {(propertyType && situation && heatingType && heatingType !== "electrique" && isValid) &&
                 <button 
                     className="bg-light-green text-white rounded px-[16px] py-[8px] font-semibold text-[17px]"
                     onClick={(e) => {
