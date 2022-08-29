@@ -15,7 +15,7 @@ import thirdImage from "../assets/brandLogo/3.png"
 
 import firstBg from '../assets/bg/firstBg.jpg'
 import secondBg from '../assets/bg/secondBg.jpg'
-import thirdBg from '../assets/bg/thirdBg.jpg'
+import test from "../assets/bg/test2.webp"
 
 export default function Hero({routes}){
     const [currentStep, setCurrentStep] = useState(1)
@@ -108,9 +108,9 @@ export default function Hero({routes}){
             {/* Background */}
             <div className="absolute top-0 left-0 w-full h-full z-[-1] bg-opacity-50" id="bg-gradient"></div>
             <div className="absolute top-0 left-0 w-full h-full z-[-10] overflow-hidden ">
-                {imageActive === 1 && <img src={firstBg} alt="bg1" className=" object-covers w-full h-full animate-bgAnimation"/>}
+                {imageActive === 1 && <img src={test} alt="bg1" className=" object-covers w-full h-full animate-bgAnimation"/>}
                 {imageActive === 2 && <img src={secondBg} alt="bg2" className=" object-covers w-full h-full animate-bgAnimation "/>}
-                {imageActive === 3 && <img src={thirdBg} alt="bg3" className=" object-covers w-full h-full animate-bgAnimation"/>}
+                {imageActive === 3 && <img src={firstBg} alt="bg3" className=" object-covers w-full h-full animate-bgAnimation"/>}
             </div>
             {/* EndBackground */}
 

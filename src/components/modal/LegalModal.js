@@ -17,7 +17,7 @@ export default function LegalModal({legalModal, setLegalModal, setConfidentialMo
                         <div className="text-light-green text-[30px] md:-mr-2 mr-4 " onClick={() => setLegalModal(false)}><FontAwesomeIcon icon={faSquareXmark}/></div>
                     </div>
                     <div className="p-3 md:p-0">
-                        <p className="text-[17px] leading-[40px] text-dark-blue">
+                        <p className="text-[17px] leading-[28px] text-dark-blue">
                         Les présentes mentions légales sont fournies en application de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique. 
                         L’Editeur du présent site est la société STEP UP DIGITAL, Société par Action Simplifiée au capital de 1000,00 €, immatriculée au RCS de Bobigny 
                         sous le numéro 831 726 559 dont le siège social est situé au 29 rue Cartier Bresson, 93500, PANTIN et le numéro TVA FR 92831726559,
@@ -26,7 +26,12 @@ export default function LegalModal({legalModal, setLegalModal, setConfidentialMo
                          le présent site web est hébergé par la société OVH dont le siège est situé à l’adresse ci-après: 2 Rue Kellermann, 59100 Roubaix, France. 
                          L’hébergeur peut être contacté au numéro de téléphone suivant : 1007 L’adresse email de l’hébergeur est support@ovh.fr 
                          Un délégué à la protection des données est à votre disposition pour toute question relative à la protection de vos données personnelles. 
-                         Vous pouvez lui écrire à : -DPO STEP UP DIGITAL – 29 rue Cartier Bresson – 93500, PANTIN. -dpo@stepup-digital.com La politique de confidentialité applicable au site est accessible 
+                         Vous pouvez lui écrire à : 
+                         <ul className="list-disc ml-5">
+                            <li>DPO STEP UP DIGITAL – 29 rue Cartier Bresson – 93500, PANTIN.</li>
+                            <li>dpo@stepup-digital.com </li>
+                        </ul>
+                        La politique de confidentialité applicable au site est accessible 
                          <button 
                             className="text-blue-800 text-[25px] pl-2"
                             onClick={() => {
