@@ -47,7 +47,7 @@ export default function Hero({routes}){
 
     console.log({currentStep, propertyType, situation, heatingType, region, dep, personInCharge, earning, prenom, nom, email, tel});
 
-    if(propertyType !== undefined && situation !== undefined && heatingType !== undefined && currentStep === 1 && region === undefined && next === false ){
+    if(propertyType !== undefined && situation !== undefined && heatingType !== undefined && currentStep === 1 && region === undefined && next === false && heatingType !== "electrique" ){
         setNext(true)
         setCurrentStep(2)
     }

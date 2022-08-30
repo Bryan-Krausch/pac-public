@@ -16,7 +16,7 @@ import ProgressBar from "../ProgressBar";
 export default function FirstStep({currentStep, setCurrentStep, propertyType, setPropertyType, situation, setSituation, heatingType, setHeatingType, routes}){
     const [isValid, setIsValid] = useState(false)
     useEffect(() => {
-        if((situation === "propriétaire" && propertyType === "maison") || routes === 2){
+        if((situation === "propriétaire" && propertyType === "maison" ) || routes === 2){
             setIsValid(true)
         }else{
             setIsValid(false)
@@ -87,7 +87,7 @@ export default function FirstStep({currentStep, setCurrentStep, propertyType, se
             </div>
             }
 
-            {(propertyType !== undefined && situation !== undefined && isValid && heatingType && heatingType === "electrique") &&
+            {(propertyType !== undefined && situation !== undefined  && heatingType === "electrique") &&
                 <div>
                     <p className="text-red-500 font-semibold text-center">Désolé, les aides concernent uniquement les types de chauffage aux combustible.</p>
                 </div>
