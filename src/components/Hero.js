@@ -9,7 +9,7 @@ import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import firstImage from "../assets/brandLogo/1.png"
-import secondImage from "../assets/brandLogo/2.png"
+import secondImage from "../assets/brandLogo/prime.png"
 import thirdImage from "../assets/brandLogo/3.png"
 
 
