@@ -8,7 +8,7 @@ export default function FirstSection(){
         <div className="w-full flex flex-col items-center space-y-5 mb-[30px] md:max-w-[1140px] md:mx-auto">
             <div className="mt-4">
                 <h2 className="text-center text-dark-blue text-[27px] font-semibold leading-[27px] md:text-[32px]">
-                    Quelles sont les aides dont je peut bénéficier
+                    Quelles sont les aides dont je peux bénéficier
                 </h2>
             </div>
 
