@@ -96,6 +96,7 @@ export default function Hero({routes}){
                 type_chauffage: heatingType
             }).then((response) => {
                 if(response.status === 200){
+                    window.dataLayer.push({"event":  "submitForm"})
                      toast.success("Formulaire envoyé avec succès")
                 }
             }).catch((error) => {
