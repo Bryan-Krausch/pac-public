@@ -34,8 +34,8 @@ export default function FirstSection(){
                     /> 
                 </ul>
             </div>
-            <div className="mt-7 flex items-center justify-start mb-[48px] w-full hover:scale-125">
-                <a className="bg-accent px-[33px] py-[10px] mx-auto inline-block" href="#hero">
+            <div className="mt-7 flex items-center justify-start mb-[48px] w-full ">
+                <a className="bg-accent px-[33px] py-[10px] mx-auto inline-block hover:scale-125" href="#hero">
                     <span className="text-white flex justify-center md:items-center">
                         <span className="text-[21px] md:text-[25px] mr-4"><FontAwesomeIcon icon={faClipboardCheck}/></span>
                         <span className="text-[21px] md:text-[25px] font-medium  text-center">Testez votre éligibilité</span>
