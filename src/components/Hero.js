@@ -45,7 +45,6 @@ export default function Hero({routes}){
     const [isValidEmail, setIsValidEmail] = useState(false)
     const [isValidTel, setIsValidTel] = useState(false)
 
-    console.log({isValidPrenom, isValidNom, isValidEmail, isValidTel});
 
     if(propertyType !== undefined && situation !== undefined && heatingType !== undefined && currentStep === 1 && region === undefined && next === false && heatingType !== "electrique" ){
         setNext(true)
