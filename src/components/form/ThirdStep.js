@@ -13,10 +13,6 @@ export default function ThirdStep({currentStep, prenom, setPrenom, nom, setNom, 
     useInputValidation(email, setIsValidEmail, validEmail)
     useInputValidation(tel, setIsValidTel, validTel)
 
-    
-
-
-
     const handleChange = (event, stateFunc) => {
         stateFunc(event.target.value)
     }
@@ -76,7 +72,7 @@ export default function ThirdStep({currentStep, prenom, setPrenom, nom, setNom, 
                         placeholder="----------"
                         id="input-tel"
                     />
-                    {(!isValidTel && tel.length > 0 && tel.length !== 10) && <div className="text-red-500">Veuillez saisir un numéro de téléphone valide</div>}
+                    {((!isValidTel || tel.length !== 10) && tel.length > 3) && <div className="text-red-500">Veuillez saisir un numéro de téléphone valide</div>}
                 </div>
             </div>
 

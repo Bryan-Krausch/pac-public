@@ -45,7 +45,7 @@ export default function Hero({routes}){
     const [isValidEmail, setIsValidEmail] = useState(false)
     const [isValidTel, setIsValidTel] = useState(false)
 
-    console.log({currentStep, propertyType, situation, heatingType, region, dep, personInCharge, earning, prenom, nom, email, tel});
+    console.log({isValidPrenom, isValidNom, isValidEmail, isValidTel});
 
     if(propertyType !== undefined && situation !== undefined && heatingType !== undefined && currentStep === 1 && region === undefined && next === false && heatingType !== "electrique" ){
         setNext(true)
@@ -102,6 +102,9 @@ export default function Hero({routes}){
             }).catch((error) => {
                 toast.error("Erreur dans le formulaire veuillez réessayer")
             })
+        }else{
+            {tel.length !== 10 ? toast.error("Numéro de téléphone invalide") : toast.error("Erreur dans le formulaire veuillez réessayer")}
+            
         }
     }
     
@@ -193,7 +196,7 @@ export default function Hero({routes}){
 
                             {currentStep === 3 && 
                                 <div className="pb-1.5 pt-5 w-full flex flex-nowrap flex-row-reverse md:justify-center md:items-center">
-                                    {(prenom !== "" && nom !== "" && tel !== "" && email !== "" && isValidEmail && isValidNom && isValidPrenom && isValidTel) ?
+                                    {(prenom !== "" && nom !== "" && tel !== "" && email !== "" && isValidEmail && isValidNom && isValidPrenom && isValidTel && tel.length === 10) ?
                                     <button className="bg-light-green text-white rounded px-[8px] py-[8px] md:px-[16px] md:py-[10px] font-semibold text-[15px] ml-4 md:ml-10">
                                         Tester mon éligbilité
                                     </button>
