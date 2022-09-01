@@ -7,7 +7,6 @@ import { faCheck, faClipboardCheck } from "@fortawesome/free-solid-svg-icons"
 import axios from 'axios'
 import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import ReactGA from 'react-ga';
 
 import firstImage from "../assets/brandLogo/1.png"
 import secondImage from "../assets/brandLogo/prime.png"
@@ -96,10 +95,6 @@ export default function Hero({routes}){
                 type_chauffage: heatingType
             }).then((response) => {
                 if(response.status === 200){
-                    // ReactGA.event({
-                    //     category: "test",
-                    //     action: ""
-                    // })
                      toast.success("Formulaire envoyé avec succès")
                 }
             }).catch((error) => {
