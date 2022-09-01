@@ -31,7 +31,7 @@ function App({routes}) {
           <FirstSection />
           <SecondSection />
         </section>
-        <div className="w-full flex flex-col items-center gap-y-8 pb-[64px] md:flex-row md:gap-x-[67px] md:gap-y-0 md:max-w-[1140px] md:mx-auto">
+        <div className="w-full flex flex-col items-center gap-y-8 pb-[32px] md:flex-row md:gap-x-[67px] md:gap-y-0 md:max-w-[1140px] md:mx-auto">
               <div className="text-center max-w-full md:w-[20%]">
                   <img width={1848} height={674} src={atlantic} alt='atlantic' 
                   className="w-[45%] inline-block box-border align-middle grayscale md:w-full hover:grayscale-0"
