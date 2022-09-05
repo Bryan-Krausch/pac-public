@@ -78,6 +78,9 @@ export default function Hero({routes}){
     }, [imageActive])
 
     const submitForm = () => {  
+        if(personInCharge === 0){
+            setPersonInCharge(1)
+        }
         if(propertyType !== undefined && situation !== undefined && heatingType !== undefined &&
             region !== undefined && dep !== undefined && personInCharge !== undefined && earning !== 
             undefined && prenom !== undefined &&  nom !== undefined && email !== undefined && tel !== undefined && tel.length === 10){
