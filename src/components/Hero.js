@@ -127,7 +127,7 @@ export default function Hero({routes}){
             notifHandler()
 
         }
-    }, [window.location.href])
+    }, [window.location])
     
     
     return(
