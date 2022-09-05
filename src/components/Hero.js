@@ -94,6 +94,7 @@ export default function Hero({routes}){
             }).then((response) => {
                 if(response.status === 200){
                      toast.success("Formulaire envoyé avec succès")
+                     window.location.assign("https://pac.optineo.info/#success")
                 }
             }).catch((error) => {
                 toast.error("Erreur dans le formulaire veuillez réessayer")
@@ -106,7 +107,10 @@ export default function Hero({routes}){
     
     return(
         <div className="min-h-[50vh] w-full relative z-[10] " id="hero" >
-            <ToastContainer />
+            <ToastContainer 
+                autoClose={8000}
+                pauseOnHover
+            />
             {/* Background */}
             <div className="absolute top-0 left-0 w-full h-full z-[-1] bg-opacity-50" id="bg-gradient"></div>
             <div className="absolute top-0 left-0 w-full h-full z-[-10] overflow-hidden hidden md:block">
