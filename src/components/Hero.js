@@ -107,11 +107,11 @@ export default function Hero({routes}){
     }
     
     useEffect(() => {
+        console.log('====================================');
+        console.log(window.location.href);
+        console.log(wasSend);
+        console.log('====================================');
         const notifHandler = () => {
-            console.log('====================================');
-            console.log(window.location.href);
-            console.log(wasSend);
-            console.log('====================================');
             if(window.location.href === "https://pac.optineo.info/?success=true"){
                 if(wasSend === false){
                     toast.success("Formulaire envoyé avec succès")
