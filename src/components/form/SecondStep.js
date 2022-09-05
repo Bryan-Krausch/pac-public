@@ -74,7 +74,8 @@ export default function SecondStep({currentStep, setCurrentStep, region, setRegi
                             className="py-[8px] px-[16px] w-full border-[1px] border-dark-blue" 
                             defaultValue={personInCharge ? personInCharge: 0}
                             onChange={(e) => {
-                                setPersonInCharge(e.target.value)
+                                let value = parseInt(e.target.value)
+                                setPersonInCharge(value + 1 )
                             }}
                         >
                             <option className="text-dark-blue" value={0}>1</option>

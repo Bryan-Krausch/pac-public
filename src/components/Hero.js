@@ -75,12 +75,10 @@ export default function Hero({routes}){
         }, 4000)
     }, [imageActive])
 
-    const submitForm = () => {
-        let nombre_personne_a_charge = personInCharge + 1
-        
+    const submitForm = () => {  
         if(propertyType !== undefined && situation !== undefined && heatingType !== undefined &&
-        region !== undefined && dep !== undefined && personInCharge !== undefined && earning !== 
-        undefined && prenom !== undefined &&  nom !== undefined && email !== undefined && tel !== undefined && tel.length === 10){
+            region !== undefined && dep !== undefined && personInCharge !== undefined && earning !== 
+            undefined && prenom !== undefined &&  nom !== undefined && email !== undefined && tel !== undefined && tel.length === 10){
             axios.post("https://api.pac.optineo.info/pac", {
                 prenom: prenom,
                 nom: nom,
@@ -88,7 +86,7 @@ export default function Hero({routes}){
                 tel: tel,
                 region: region,
                 departement: dep,
-                nombre_personne_a_charge: nombre_personne_a_charge,
+                nombre_personne_a_charge: personInCharge,
                 revenu_total_foyer_fiscal: earning,
                 type_proprietee: propertyType,
                 situation: situation,
@@ -111,7 +109,7 @@ export default function Hero({routes}){
             <ToastContainer />
             {/* Background */}
             <div className="absolute top-0 left-0 w-full h-full z-[-1] bg-opacity-50" id="bg-gradient"></div>
-            <div className="absolute top-0 left-0 w-full h-full z-[-10] overflow-hidden ">
+            <div className="absolute top-0 left-0 w-full h-full z-[-10] overflow-hidden hidden md:block">
                 {imageActive === 1 && <img src={test} alt="bg1" className=" object-covers w-full h-full animate-bgAnimation"/>}
                 {imageActive === 2 && <img src={secondBg} alt="bg2" className=" object-covers w-full h-full animate-bgAnimation "/>}
                 {imageActive === 3 && <img src={firstBg} alt="bg3" className=" object-covers w-full h-full animate-bgAnimation"/>}
