@@ -18,6 +18,8 @@ import secondBg from '../assets/bg/secondBg.jpg'
 import test from "../assets/bg/test2.webp"
 
 export default function Hero({routes}){
+    const [wasSend, setWasSend] = useState(false)
+
     const [currentStep, setCurrentStep] = useState(1)
     const [imageActive, setImageActive] = useState(1)
 
@@ -93,7 +95,6 @@ export default function Hero({routes}){
                 type_chauffage: heatingType
             }).then((response) => {
                 if(response.status === 200){
-                    toast.success("Formulaire envoyé avec succès")
                     window.location.href = window.location.href + '?success=true';
                 }
             }).catch((error) => {
@@ -104,6 +105,24 @@ export default function Hero({routes}){
             
         }
     }
+    
+    useEffect(() => {
+        const notifHandler = () => {
+            if(window.location.href === "https://pac.optineo.info/?success=true"){
+                if(wasSend === false){
+                    toast.success("Formulaire envoyé avec succès")
+                }
+                if(wasSend === true){
+                    return
+                }    
+            }
+        }
+
+        return () => {
+            notifHandler()
+        }
+    }, [window.location.href])
+    
     
     return(
         <div className="min-h-[50vh] w-full relative z-[10] " id="hero" >
