@@ -107,10 +107,7 @@ export default function Hero({routes}){
     }
     
     useEffect(() => {
-        console.log('====================================');
-        console.log(window.location.href);
-        console.log(wasSend);
-        console.log('====================================');
+
         const notifHandler = () => {
             if(window.location.href === "https://pac.optineo.info/?success=true"){
                 if(wasSend === false){
@@ -122,9 +119,15 @@ export default function Hero({routes}){
                 }    
             }
         }
+        notifHandler()
         
         return () => {
-            notifHandler()
+            if(window.location.href === "https://pac.optineo.info/?success=true"){
+                setWasSend(true)
+            }else{
+                setWasSend(false)
+
+            }
 
         }
     }, [window.location])
