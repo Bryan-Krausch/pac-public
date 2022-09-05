@@ -93,8 +93,8 @@ export default function Hero({routes}){
                 type_chauffage: heatingType
             }).then((response) => {
                 if(response.status === 200){
-                     toast.success("Formulaire envoyé avec succès")
-                     window.location.assign("https://pac.optineo.info/#success")
+                    toast.success("Formulaire envoyé avec succès")
+                    window.location.href = window.location.href + '?success=true';
                 }
             }).catch((error) => {
                 toast.error("Erreur dans le formulaire veuillez réessayer")
