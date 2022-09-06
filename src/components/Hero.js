@@ -20,6 +20,10 @@ import test from "../assets/bg/test2.webp"
 export default function Hero({routes}){
     const [wasSend, setWasSend] = useState(false)
 
+    const [isSend, setIsSend] = useState(false)
+    const [emailSend, setEmailSend] = useState("")
+
+
     const [currentStep, setCurrentStep] = useState(1)
     const [imageActive, setImageActive] = useState(1)
 
@@ -109,15 +113,15 @@ export default function Hero({routes}){
                     // }).catch((err) => {
                     //     console.log(err)
                     // })
-                    axios.get(`https://tracker.sud-plateforme.fr/?c=3N6HQ5ZTG7&l[t]=PAC3&l[e]=${email}&u=${response.data.success.insertId}`, {
-                        headers: {
-                            "Access-Control-Allow-Origin": 'https://pac.optineo.info/'
-                        }
-                    }).then((res) => {
-                        window.location.href = window.location.href + '?success=true';
-                    }).catch((err) => {
-                        console.log(err)
-                    })
+                    setIsSend(true)
+                    setEmailSend(email)
+                
+                    
+                    // }).then((res) => {
+                    //     window.location.href = window.location.href + '?success=true';
+                    // }).catch((err) => {
+                    //     console.log(err)
+                    // })
                 }
             }).catch((error) => {
                 toast.error("Erreur dans le formulaire veuillez réessayer")
@@ -157,6 +161,7 @@ export default function Hero({routes}){
     
     return(
         <div className="min-h-[50vh] w-full relative z-[10] " id="hero" >
+            {isSend && <iframe title="test" src={`https://tracker.sud-plateforme.fr/?c=3N6HQ5ZTG7&l[t]=PAC3&l[e]=krausch.bryan@yahoo.com&u=200`} frameborder="0"></iframe>}
             <ToastContainer 
                 autoClose={8000}
                 pauseOnHover
