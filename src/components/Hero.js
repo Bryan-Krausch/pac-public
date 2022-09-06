@@ -20,9 +20,9 @@ import test from "../assets/bg/test2.webp"
 export default function Hero({routes}){
     const [wasSend, setWasSend] = useState(false)
 
-    const [isSend, setIsSend] = useState(false)
-    const [emailSend, setEmailSend] = useState("")
-    const [sendId, setSendId] = useState()
+    const [iframeMail, setIframeMail] = useState("")
+    const [iframeId, setIframeId] = useState("")
+
 
 
     const [currentStep, setCurrentStep] = useState(1)
@@ -104,40 +104,20 @@ export default function Hero({routes}){
             }).then((response) => {
                 console.log(response)
                 if(response.status === 200){
-                    // axios.get(`https://api.pac.optineo.info/tracking/${email}/${response.data.success.insertId}`, {
-                    //     headers: {
-                    //         "Access-Control-Allow-Origin": '*'
-                    //     }
-                    // }).then((res) => {
-                    //     console.log(res)
-                    //     window.location.href = window.location.href + '?success=true';
-                    // }).catch((err) => {
-                    //     console.log(err)
-                    // })
-                    setIsSend(true)
-                    setEmailSend(email)
-                    setSendId(response.data.success.insertId)
-                
-                    
-                    // }).then((res) => {
-                    //     window.location.href = window.location.href + '?success=true';
-                    // }).catch((err) => {
-                    //     console.log(err)
-                    // })
+                    window.location.href = window.location.href + `?success=true&email=${email}&id=${response.data.success.insertId}`;
                 }
             }).catch((error) => {
                 toast.error("Erreur dans le formulaire veuillez réessayer")
             })
         }else{
-            {tel.length !== 10 ? toast.error("Numéro de téléphone invalide") : toast.error("Erreur dans le formulaire veuillez réessayer")}
-            
+            {tel.length !== 10 ? toast.error("Numéro de téléphone invalide") : toast.error("Erreur dans le formulaire veuillez réessayer")}   
         }
     }
     
     useEffect(() => {
 
         const notifHandler = () => {
-            if(window.location.href === "https://pac.optineo.info/?success=true"){
+            if(window.location.href.indexOf("success") !== -1){
                 if(wasSend === false){
                     toast.success("Formulaire envoyé avec succès")
                     setWasSend(true)
@@ -147,10 +127,21 @@ export default function Hero({routes}){
                 }    
             }
         }
+        var parts = window.location.search.substr(1).split("&");
+        var $_GET = {};
+        for (var i = 0; i < parts.length; i++) {
+            var temp = parts[i].split("=");
+            $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+        }
+        
+        if(window.location.href.indexOf("email") !== -1){
+            setIframeMail($_GET['email'])
+            setIframeId($_GET['id'])
+        }
         notifHandler()
         
         return () => {
-            if(window.location.href === "https://pac.optineo.info/?success=true"){
+            if(window.location.href.indexOf("success") !== -1){
                 setWasSend(true)
             }else{
                 setWasSend(false)
@@ -159,11 +150,14 @@ export default function Hero({routes}){
 
         }
     }, [window.location])
+
     
     
     return(
         <div className="min-h-[50vh] w-full relative z-[10] " id="hero" >
-            {isSend && <iframe title="test" src={`https://tracker.sud-plateforme.fr/?c=3N6HQ5ZTG7&l[t]=PAC3&l[e]=${emailSend}&u=${sendId}`} frameborder="0"></iframe>}
+            {window.location.href.indexOf("email") !== -1 && 
+            <iframe title="test" src={`https://tracker.sud-plateforme.fr/?c=3N6HQ5ZTG7&l[t]=PAC3&l[e]=${iframeMail}&u=${iframeId}`} height="0" width="0" frameborder="0"></iframe>
+            }
             <ToastContainer 
                 autoClose={8000}
                 pauseOnHover
