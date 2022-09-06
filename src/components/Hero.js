@@ -99,12 +99,15 @@ export default function Hero({routes}){
             }).then((response) => {
                 console.log(response)
                 if(response.status === 200){
-                    axios.post(`https://tracker.sud-plateforme.fr/?c=3N6HQ5ZTG7&l[t]=PAC3&l[rid]=${response.data.success.insertId}&l[e]=${email}L&u=${response.data.success.insertId}`).then((res) => {
+                    axios.post(`https://tracker.sud-plateforme.fr/?c=3N6HQ5ZTG7&l[t]=PAC3&l[rid]=${response.data.success.insertId}&l[e]=${email}L&u=${response.data.success.insertId}`, {
+                        headers: {
+                            'Access-Control-Allow-Origin': '*',
+                        }
+                    }).then((res) => {
                         console.log(res)
                         window.location.href = window.location.href + '?success=true';
                     }).catch((err) => {
                         console.log(err)
-                        window.location.href = window.location.href + '?success=true';
                     })
                 }
             }).catch((error) => {
