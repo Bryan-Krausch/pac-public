@@ -12,11 +12,17 @@ import dietrich from "./assets/partner/dietrich.png"
 import mitsubishi from "./assets/partner/mitsubishi.svg"
 import {useState} from 'react'
 import ModalContainer from './components/modal/ModalContainer';
+import {useEffect} from 'react'
 
 function App({routes}) {
   const [legalModal, setLegalModal] = useState(false)
   const [confidentialModal, setConfidentialModal] = useState(false)
   const [cgu, setCgu] = useState(false)
+
+  useEffect(() => {
+    const cookie = document.cookie
+    console.log(cookie)
+  }, [])
 
 
   return (
