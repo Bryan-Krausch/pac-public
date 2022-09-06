@@ -19,12 +19,6 @@ function App({routes}) {
   const [confidentialModal, setConfidentialModal] = useState(false)
   const [cgu, setCgu] = useState(false)
 
-  useEffect(() => {
-    const cookie = document.cookie
-    console.log(cookie)
-  }, [])
-
-
   return (
     <div className="App">
       <ModalContainer legalModal={legalModal} setLegalModal={setLegalModal} confidentialModal={confidentialModal} setConfidentialModal={setConfidentialModal} cgu={cgu} setCgu={setCgu} />
