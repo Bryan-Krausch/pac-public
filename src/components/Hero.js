@@ -83,12 +83,11 @@ export default function Hero({routes}){
     }, [imageActive])
 
     const submitForm = () => {  
-        if(personInCharge === 0){
-            setPersonInCharge(1)
-        }
+
         if(propertyType !== undefined && situation !== undefined && heatingType !== undefined &&
             region !== undefined && dep !== undefined && personInCharge !== undefined && earning !== 
             undefined && prenom !== undefined &&  nom !== undefined && email !== undefined && tel !== undefined && tel.length === 10){
+            
             axios.post("https://api.pac.optineo.info/pac", {
                 prenom: prenom,
                 nom: nom,
@@ -96,7 +95,7 @@ export default function Hero({routes}){
                 tel: tel,
                 region: region,
                 departement: dep,
-                nombre_personne_a_charge: personInCharge,
+                nombre_personne_a_charge: personInCharge == 0 ? 1 : personInCharge,
                 revenu_total_foyer_fiscal: earning,
                 type_proprietee: propertyType,
                 situation: situation,
