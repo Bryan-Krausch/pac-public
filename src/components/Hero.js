@@ -247,7 +247,7 @@ export default function Hero({routes}){
                             {currentStep === 3 && 
                                 <div className="pb-1.5 pt-5 w-full flex flex-nowrap flex-row-reverse md:justify-center md:items-center">
                                     {(prenom !== "" && nom !== "" && tel !== "" && email !== "" && isValidEmail && isValidNom && isValidPrenom && isValidTel && tel.length === 10) ?
-                                    <button className="bg-light-green text-white rounded px-[8px] py-[8px] md:px-[16px] md:py-[10px] font-semibold text-[15px] ml-4 md:ml-10">
+                                    <button id="clickbtnform" className="bg-light-green text-white rounded px-[8px] py-[8px] md:px-[16px] md:py-[10px] font-semibold text-[15px] ml-4 md:ml-10">
                                         Tester mon éligbilité
                                     </button>
                                     :
