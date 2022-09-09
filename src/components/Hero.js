@@ -23,6 +23,8 @@ export default function Hero({routes}){
     const [iframeMail, setIframeMail] = useState("")
     const [iframeId, setIframeId] = useState("")
 
+    const [firstStepProps, setFirstStepProps] = useState()
+    const [firstStepHasError, setFirstStepHasError] = useState(false)
 
 
     const [currentStep, setCurrentStep] = useState(1)
@@ -81,6 +83,98 @@ export default function Hero({routes}){
             }
         }, 4000)
     }, [imageActive])
+
+    // GET PROPS FIRST STEP
+    useEffect(() => {
+        const getFirstProps = async(state, setState) => {
+            if(!state){
+                await axios.get("http://localhost:8000/api/getFirstStepPropsPac").then((result) => {
+                    setState(result)
+                    return
+                }).catch((err) => {
+                    console.log(err)
+                })
+            }else{
+                return
+            }
+        }
+        getFirstProps(firstStepProps, setFirstStepProps)
+    }, [])
+
+    // Handle first PROPS PROPERTY
+    useEffect(() => {
+        const handlePropsProperty = (property, situation, heatingType, props, setValid) => {
+            if(props){
+                if(propertyType === props.data[0].champ){
+                    if(props.data[0].value.data[0] === 0){
+                        setFirstStepHasError(true)
+                        return
+                    }
+                }
+                if(property === props.data[1].champ){
+                    if(props.data[1].value.data[0] === 0){
+                        setFirstStepHasError(true)
+                        return
+                    }
+                }
+                if(situation === props.data[2].champ){
+                    if(props.data[2].value.data[0] === 0){
+                        setFirstStepHasError(true)
+                        return
+                    }
+                }
+                if(situation === props.data[3].champ){
+                    if(props.data[3].value.data[0] === 0){
+                        setFirstStepHasError(true)
+                        return
+                    }
+                }
+                if(heatingType === props.data[4].champ){
+                    if(props.data[4].value.data[0] === 0){
+                        setFirstStepHasError(true)
+                        return
+                    }
+                }
+                if(heatingType === props.data[5].champ){
+                    if(props.data[5].value.data[0] === 0){
+                        setFirstStepHasError(true)
+                        return
+                    }
+                }
+                if(heatingType === props.data[6].champ){
+                    if(props.data[6].value.data[0] === 0){
+                        setFirstStepHasError(true)
+                        return
+                    }
+                }
+                if(heatingType === props.data[7].champ){
+                    if(props.data[7].value.data[0] === 0){
+                        setFirstStepHasError(true)
+                        return
+                    }
+                }
+                if(heatingType === props.data[8].champ){
+                    if(props.data[8].value.data[0] === 0){
+                        setFirstStepHasError(true)
+                        return
+                    }
+                }
+                if(heatingType === props.data[9].champ){
+                    if(props.data[9].value.data[0] === 0){
+                        setFirstStepHasError(true)
+                        return
+                    }
+                }
+            }
+            setFirstStepHasError(false)
+        }
+
+        handlePropsProperty(propertyType, situation, heatingType, firstStepProps, setFirstStepHasError)
+    }, [currentStep, propertyType, situation, heatingType])
+    
+
+    console.log(firstStepHasError)
+
 
     const submitForm = () => {  
 
