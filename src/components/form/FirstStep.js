@@ -13,15 +13,8 @@ import {useState, useEffect} from 'react'
 import ProgressBar from "../ProgressBar";
 
 
-export default function FirstStep({currentStep, setCurrentStep, propertyType, setPropertyType, situation, setSituation, heatingType, setHeatingType, routes}){
-    const [isValid, setIsValid] = useState(false)
-    useEffect(() => {
-        if((situation === "propriétaire" && propertyType === "maison" ) || routes === 2){
-            setIsValid(true)
-        }else{
-            setIsValid(false)
-        }
-    }, [situation, propertyType, routes])
+export default function FirstStep({currentStep, setCurrentStep, propertyType, setPropertyType, situation, setSituation, heatingType, setHeatingType, firstStepHasError, routes}){
+
 
     return(
         <div id="step-1" className="text-start flex flex-col gap-y-1.5">
@@ -62,7 +55,7 @@ export default function FirstStep({currentStep, setCurrentStep, propertyType, se
                 />
 
 
-            {((propertyType !== undefined && situation !== undefined) && isValid) ?
+            {((propertyType !== undefined && situation !== undefined && !firstStepHasError[0] && !firstStepHasError[1])) ?
             <div className="">
                 <div className="pb-1.5">
                     <span className="text-dark-blue text-[19px] font-semibold tracking-wide">Quel est votre type de chauffage actuel ?</span>
@@ -79,7 +72,7 @@ export default function FirstStep({currentStep, setCurrentStep, propertyType, se
             </div>
             :
             <div>
-                {(propertyType !== undefined && situation !== undefined && !isValid ) && 
+                {(propertyType !== undefined && situation !== undefined && firstStepHasError ) && 
                     <div>
                         <p className="text-red-500 font-semibold text-center">Désolé, les aides ne concernent que les propriétaires de maison.</p>
                     </div>
@@ -87,14 +80,8 @@ export default function FirstStep({currentStep, setCurrentStep, propertyType, se
             </div>
             }
 
-            {(propertyType !== undefined && situation !== undefined  && heatingType === "electrique") &&
-                <div>
-                    <p className="text-red-500 font-semibold text-center">Désolé, les aides concernent uniquement les types de chauffage aux combustible.</p>
-                </div>
-            }
-
             <div>
-                {(propertyType && situation && heatingType && heatingType !== "electrique" && isValid) &&
+                {(propertyType && situation && heatingType && !firstStepHasError[0] && !firstStepHasError[1] && !firstStepHasError[2]) &&
                 <button 
                     className="bg-light-green text-white rounded px-[16px] py-[8px] font-semibold text-[17px]"
                     onClick={(e) => {

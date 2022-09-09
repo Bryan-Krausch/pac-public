@@ -24,7 +24,11 @@ export default function Hero({routes}){
     const [iframeId, setIframeId] = useState("")
 
     const [firstStepProps, setFirstStepProps] = useState()
-    const [firstStepHasError, setFirstStepHasError] = useState(false)
+    const [firstStepHasError, setFirstStepHasError] = useState({
+        0: true,
+        1: true,
+        2: true
+    })
 
 
     const [currentStep, setCurrentStep] = useState(1)
@@ -55,7 +59,8 @@ export default function Hero({routes}){
     const [isValidTel, setIsValidTel] = useState(false)
 
 
-    if(propertyType !== undefined && situation !== undefined && heatingType !== undefined && currentStep === 1 && region === undefined && next === false && heatingType !== "electrique" ){
+    if(propertyType !== undefined && situation !== undefined && heatingType !== undefined 
+        && currentStep === 1 && region === undefined && next === false && !firstStepHasError[0] && !firstStepHasError[1] && !firstStepHasError[2] ){
         setNext(true)
         setCurrentStep(2)
     }
@@ -88,7 +93,7 @@ export default function Hero({routes}){
     useEffect(() => {
         const getFirstProps = async(state, setState) => {
             if(!state){
-                await axios.get("http://localhost:8000/api/getFirstStepPropsPac").then((result) => {
+                await axios.get("https://api.pac.optineo.info/getFirstPropsPac").then((result) => {
                     setState(result)
                     return
                 }).catch((err) => {
@@ -101,79 +106,100 @@ export default function Hero({routes}){
         getFirstProps(firstStepProps, setFirstStepProps)
     }, [])
 
+
     // Handle first PROPS PROPERTY
     useEffect(() => {
-        const handlePropsProperty = (property, situation, heatingType, props, setValid) => {
-            if(props){
+        const handlePropertyTypeProps = (property, props, setFirstStepHasError) => {
+            if(props && propertyType){
                 if(propertyType === props.data[0].champ){
                     if(props.data[0].value.data[0] === 0){
-                        setFirstStepHasError(true)
+                        setFirstStepHasError({...firstStepHasError, 0: true})
                         return
                     }
                 }
                 if(property === props.data[1].champ){
                     if(props.data[1].value.data[0] === 0){
-                        setFirstStepHasError(true)
+                        setFirstStepHasError({...firstStepHasError, 0: true})
                         return
                     }
                 }
+                setFirstStepHasError({...firstStepHasError, 0: false})
+            }
+        }
+
+        handlePropertyTypeProps(propertyType, firstStepProps, setFirstStepHasError)
+    }, [currentStep, propertyType])
+    
+    useEffect(() => {
+        const handleSituationProps = (situation, props, setFirstStepHasError) => {
+            if(props && situation){
                 if(situation === props.data[2].champ){
                     if(props.data[2].value.data[0] === 0){
-                        setFirstStepHasError(true)
+                        setFirstStepHasError({...firstStepHasError, 1: true})
                         return
                     }
                 }
                 if(situation === props.data[3].champ){
                     if(props.data[3].value.data[0] === 0){
-                        setFirstStepHasError(true)
+                        setFirstStepHasError({...firstStepHasError, 1: true})
                         return
                     }
                 }
+                setFirstStepHasError({...firstStepHasError, 1: false})
+            }
+        }
+        
+        handleSituationProps(situation, firstStepProps, setFirstStepHasError)
+    }, [currentStep, situation])
+    
+    useEffect(() => {
+
+        const handleHeatingTypeProps = (heatingType, props, setFirstStepHasError) => {
+            if(props && heatingType){
                 if(heatingType === props.data[4].champ){
                     if(props.data[4].value.data[0] === 0){
-                        setFirstStepHasError(true)
+                        setFirstStepHasError({...firstStepHasError, 2: true})
                         return
                     }
                 }
                 if(heatingType === props.data[5].champ){
                     if(props.data[5].value.data[0] === 0){
-                        setFirstStepHasError(true)
+                        setFirstStepHasError({...firstStepHasError, 2: true})
                         return
                     }
                 }
                 if(heatingType === props.data[6].champ){
                     if(props.data[6].value.data[0] === 0){
-                        setFirstStepHasError(true)
+                        setFirstStepHasError({...firstStepHasError, 2: true})
                         return
                     }
                 }
                 if(heatingType === props.data[7].champ){
                     if(props.data[7].value.data[0] === 0){
-                        setFirstStepHasError(true)
+                        setFirstStepHasError({...firstStepHasError, 2: true})
                         return
                     }
                 }
                 if(heatingType === props.data[8].champ){
                     if(props.data[8].value.data[0] === 0){
-                        setFirstStepHasError(true)
+                        setFirstStepHasError({...firstStepHasError, 2: true})
                         return
                     }
                 }
                 if(heatingType === props.data[9].champ){
                     if(props.data[9].value.data[0] === 0){
-                        setFirstStepHasError(true)
+                        setFirstStepHasError({...firstStepHasError, 2: true})
                         return
                     }
                 }
+                setFirstStepHasError({...firstStepHasError, 2: false})
             }
-            setFirstStepHasError(false)
+            return
         }
-
-        handlePropsProperty(propertyType, situation, heatingType, firstStepProps, setFirstStepHasError)
-    }, [currentStep, propertyType, situation, heatingType])
+        
+        handleHeatingTypeProps(heatingType, firstStepProps, setFirstStepHasError)
+    }, [currentStep, heatingType])
     
-
-    console.log(firstStepHasError)
 
 
     const submitForm = () => {  
@@ -245,7 +271,6 @@ export default function Hero({routes}){
     }, [window.location])
 
     
-    
     return(
         <div className="min-h-[50vh] w-full relative z-[10] " id="hero" >
             {window.location.href.indexOf("email") !== -1 && 
@@ -301,6 +326,7 @@ export default function Hero({routes}){
                                                     setSituation={setSituation}
                                                     heatingType={heatingType}
                                                     setHeatingType={setHeatingType}
+                                                    firstStepHasError={firstStepHasError}
                                                     routes={routes}
                                                 />}
                             {/* Etape 2 */}
