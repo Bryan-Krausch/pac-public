@@ -25,9 +25,9 @@ export default function Hero({routes}){
 
     const [firstStepProps, setFirstStepProps] = useState()
     const [firstStepHasError, setFirstStepHasError] = useState({
-        0: true,
-        1: true,
-        2: true
+        0: false,
+        1: false,
+        2: false
     })
 
     const [errorMessage, setErrorMessage] = useState()
