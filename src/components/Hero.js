@@ -30,6 +30,8 @@ export default function Hero({routes}){
         2: true
     })
 
+    const [errorMessage, setErrorMessage] = useState()
+
 
     const [currentStep, setCurrentStep] = useState(1)
     const [imageActive, setImageActive] = useState(1)
@@ -89,7 +91,7 @@ export default function Hero({routes}){
         }, 4000)
     }, [imageActive])
 
-    // GET PROPS FIRST STEP
+    // GET PROPS FIRST STEP AND ERROR Message
     useEffect(() => {
         const getFirstProps = async(state, setState) => {
             if(!state){
@@ -103,9 +105,23 @@ export default function Hero({routes}){
                 return
             }
         }
-        getFirstProps(firstStepProps, setFirstStepProps)
-    }, [])
 
+        const getErrorMessage = async(state, setState) => {
+            if(!state){
+                await axios.get("https://api.pac.optineo.info/getErrorMessagePac").then((result) => {
+                    setState(result)
+                    return
+                }).catch((err) => {
+                    console.log(err)
+                })
+            }else{
+                return
+            }
+        }
+
+        getFirstProps(firstStepProps, setFirstStepProps)
+        getErrorMessage(errorMessage, setErrorMessage)
+    }, [])
 
     // Handle first PROPS PROPERTY
     useEffect(() => {
@@ -130,6 +146,7 @@ export default function Hero({routes}){
         handlePropertyTypeProps(propertyType, firstStepProps, setFirstStepHasError)
     }, [currentStep, propertyType])
     
+    // Handle second props
     useEffect(() => {
         const handleSituationProps = (situation, props, setFirstStepHasError) => {
             if(props && situation){
@@ -152,6 +169,8 @@ export default function Hero({routes}){
         handleSituationProps(situation, firstStepProps, setFirstStepHasError)
     }, [currentStep, situation])
     
+    // Handle Third Props
+
     useEffect(() => {
 
         const handleHeatingTypeProps = (heatingType, props, setFirstStepHasError) => {
@@ -221,7 +240,6 @@ export default function Hero({routes}){
                 situation: situation,
                 type_chauffage: heatingType
             }).then((response) => {
-                console.log(response)
                 if(response.status === 200){
                     window.location.href = window.location.href + `?success=true&email=${email}&id=${response.data.success.insertId}`;
                 }
@@ -276,6 +294,9 @@ export default function Hero({routes}){
             {window.location.href.indexOf("email") !== -1 && 
             <iframe title="test" src={`https://tracker.sud-plateforme.fr/?c=3N6HQ5ZTG7&l[t]=PAC3&l[e]=${iframeMail}&u=${iframeId}`} height="0" width="0" frameborder="0"></iframe>
             }
+            {window.location.href.indexOf("email") !== -1 && 
+                <img src="https://comandclick.com/scripts/sale.php?AccountId=626372ec&TotalCost=17&CampaignID=dume8rc2&ProductID=A_REMPLACER" width="1" height="1" />
+            }
             <ToastContainer 
                 autoClose={8000}
                 pauseOnHover
@@ -328,6 +349,7 @@ export default function Hero({routes}){
                                                     setHeatingType={setHeatingType}
                                                     firstStepHasError={firstStepHasError}
                                                     routes={routes}
+                                                    errorMessage={errorMessage}
                                                 />}
                             {/* Etape 2 */}
                             {currentStep === 2 && <SecondStep 

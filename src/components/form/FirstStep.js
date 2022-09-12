@@ -9,12 +9,10 @@ import fioul from "../../assets/formAssets/fioul.png"
 import gaz from "../../assets/formAssets/gaz.png"
 import courant from "../../assets/formAssets/courant.png"
 import pompe from "../../assets/formAssets/pompe.png"
-import {useState, useEffect} from 'react'
 import ProgressBar from "../ProgressBar";
 
 
-export default function FirstStep({currentStep, setCurrentStep, propertyType, setPropertyType, situation, setSituation, heatingType, setHeatingType, firstStepHasError, routes}){
-
+export default function FirstStep({currentStep, setCurrentStep, propertyType, setPropertyType, situation, setSituation, heatingType, setHeatingType, firstStepHasError, routes, errorMessage}){
 
     return(
         <div id="step-1" className="text-start flex flex-col gap-y-1.5">
@@ -55,7 +53,7 @@ export default function FirstStep({currentStep, setCurrentStep, propertyType, se
                 />
 
 
-            {((propertyType !== undefined && situation !== undefined && !firstStepHasError[0] && !firstStepHasError[1])) ?
+            {((propertyType !== undefined && situation !== undefined && !firstStepHasError[0] && !firstStepHasError[1])) &&
             <div className="">
                 <div className="pb-1.5">
                     <span className="text-dark-blue text-[19px] font-semibold tracking-wide">Quel est votre type de chauffage actuel ?</span>
@@ -70,14 +68,21 @@ export default function FirstStep({currentStep, setCurrentStep, propertyType, se
                 </div>
 
             </div>
-            :
-            <div>
-                {(propertyType !== undefined && situation !== undefined && firstStepHasError ) && 
+            }
+            {(firstStepHasError[0] === true && errorMessage && propertyType) && 
                     <div>
-                        <p className="text-red-500 font-semibold text-center">Désolé, les aides ne concernent que les propriétaires de maison.</p>
+                        <p className="text-red-500 font-semibold text-center">{errorMessage.data[0].message}</p>
                     </div>
-                }
-            </div>
+            }
+            {(firstStepHasError[1] === true && errorMessage && situation) && 
+                    <div>
+                        <p className="text-red-500 font-semibold text-center">{errorMessage.data[1].message}</p>
+                    </div>
+            }
+            {(firstStepHasError[2] === true && errorMessage && heatingType) && 
+                    <div>
+                        <p className="text-red-500 font-semibold text-center">{errorMessage.data[2].message}</p>
+                    </div>
             }
 
             <div>
