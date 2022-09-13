@@ -6,6 +6,7 @@ import { faCircleDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProgressBar from "../ProgressBar";
 import {numberWithSpaces} from '../../libs/numberWithSpaces'
+import {axios} from 'axios'
 
 export default function SecondStep({currentStep, setCurrentStep, region, setRegion, dep, setDep, personInCharge, setPersonInCharge, earning, setEarning}){
     const [earningChoice, setEarningChoice] = useState(undefined)
@@ -27,6 +28,7 @@ export default function SecondStep({currentStep, setCurrentStep, region, setRegi
     const handleAboveEarning = (e) => {
         setEarningChoice("above")
     }
+
 
     useEffect(() => {
         if(region !== undefined && personInCharge !== undefined){

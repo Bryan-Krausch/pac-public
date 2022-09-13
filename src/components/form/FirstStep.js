@@ -12,7 +12,18 @@ import pompe from "../../assets/formAssets/pompe.png"
 import ProgressBar from "../ProgressBar";
 
 
-export default function FirstStep({currentStep, setCurrentStep, propertyType, setPropertyType, situation, setSituation, heatingType, setHeatingType, firstStepHasError, routes, errorMessage}){
+export default function FirstStep({
+    currentStep, 
+    setCurrentStep, 
+    propertyType, 
+    setPropertyType, 
+    situation, 
+    setSituation, 
+    heatingType, 
+    setHeatingType, 
+    firstStepHasError, 
+    routes, 
+    errorMessage}){
 
     return(
         <div id="step-1" className="text-start flex flex-col gap-y-1.5">

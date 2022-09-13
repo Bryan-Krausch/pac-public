@@ -25,9 +25,9 @@ export default function Hero({routes}){
 
     const [firstStepProps, setFirstStepProps] = useState()
     const [firstStepHasError, setFirstStepHasError] = useState({
-        0: false,
-        1: false,
-        2: false
+        0: undefined,
+        1: undefined,
+        2: undefined
     })
 
     const [errorMessage, setErrorMessage] = useState()
@@ -60,12 +60,12 @@ export default function Hero({routes}){
     const [isValidEmail, setIsValidEmail] = useState(false)
     const [isValidTel, setIsValidTel] = useState(false)
 
-
-    if(propertyType !== undefined && situation !== undefined && heatingType !== undefined 
-        && currentStep === 1 && region === undefined && next === false && !firstStepHasError[0] && !firstStepHasError[1] && !firstStepHasError[2] ){
+    
+    if(next === false && !firstStepHasError[0] === false && !firstStepHasError[1]  === false && !firstStepHasError[2]  === false ){
         setNext(true)
         setCurrentStep(2)
     }
+
 
     // Set basic value for dep and earnings
     useEffect(() => {
@@ -226,7 +226,6 @@ export default function Hero({routes}){
         if(propertyType !== undefined && situation !== undefined && heatingType !== undefined &&
             region !== undefined && dep !== undefined && personInCharge !== undefined && earning !== 
             undefined && prenom !== undefined &&  nom !== undefined && email !== undefined && tel !== undefined && tel.length === 10){
-            
             axios.post("https://api.pac.optineo.info/pac", {
                 prenom: prenom,
                 nom: nom,
