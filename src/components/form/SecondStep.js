@@ -6,11 +6,37 @@ import { faCircleDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProgressBar from "../ProgressBar";
 import {numberWithSpaces} from '../../libs/numberWithSpaces'
-import {axios} from 'axios'
+import axios from 'axios'
 
 export default function SecondStep({currentStep, setCurrentStep, region, setRegion, dep, setDep, personInCharge, setPersonInCharge, earning, setEarning}){
     const [earningChoice, setEarningChoice] = useState(undefined)
     const [earningResult, setEarningResult] = useState()
+    const [excludedDepartement, setExcludedDepartement] = useState()
+    const [departementHasError, setDepartementHasError] = useState()
+
+    useEffect(() => {
+        const getExcludedDepartement = async(state,setState) => {
+            await axios.get("https://api.pac.optineo.info/getDepartementPac").then((res) => {
+                setState(res.data)
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
+
+        getExcludedDepartement(excludedDepartement, setExcludedDepartement)
+    }, [])
+
+    useEffect(() => {
+        if(excludedDepartement && dep){
+            excludedDepartement.map((aDepartement) => {
+                if(aDepartement.code.toString() === dep.toString()){
+                    setDepartementHasError(true)
+                }
+            })
+            return
+        }
+        setDepartementHasError(false)
+    }, [dep])
 
     const onChange = (e) => {
         if(e.target.value === ""){
@@ -65,7 +91,7 @@ export default function SecondStep({currentStep, setCurrentStep, region, setRegi
                         </select>
                     </div>
                 </div>
-                <SelectItemDep title={"Département"} region={region} setDep={setDep}/>
+                <SelectItemDep title={"Département"} region={region} setDep={setDep} excludedDepartement={excludedDepartement}/>
             </div>
 
             <div className="row">
@@ -124,6 +150,11 @@ export default function SecondStep({currentStep, setCurrentStep, region, setRegi
                         {earning === `Plus de ${earningResult}` && <div className="text-light-green text-[16px]"><FontAwesomeIcon icon={faCircleDot}/></div>}
                     </div>
                 </div>
+                    {departementHasError && 
+                        <div>
+                            <p className="text-red-500 font-semibold text-center">Votre département n'est pas éligible</p>
+                        </div>
+                    }
             </div>
 
             <div className="pb-1.5 pt-5 space-x-2  md:mt-6">
@@ -133,7 +164,7 @@ export default function SecondStep({currentStep, setCurrentStep, region, setRegi
                 }}>
                         Précédent
                 </button>
-                {(region && dep && (personInCharge || personInCharge === 0) && earning) ?
+                {(region && dep && (personInCharge || personInCharge === 0) && earning && departementHasError === false) ?
                 <button className="bg-light-green text-white rounded px-[16px] py-[8px] font-semibold text-[17px]" onClick={(e) => {
                     e.preventDefault()
                     setCurrentStep(3)

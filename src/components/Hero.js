@@ -59,9 +59,8 @@ export default function Hero({routes}){
     const [isValidNom, setIsValidNom] = useState(false)
     const [isValidEmail, setIsValidEmail] = useState(false)
     const [isValidTel, setIsValidTel] = useState(false)
-
     
-    if(next === false && !firstStepHasError[0] === false && !firstStepHasError[1]  === false && !firstStepHasError[2]  === false ){
+    if(next === false && firstStepHasError[0] === false && firstStepHasError[1]  === false && firstStepHasError[2]  === false ){
         setNext(true)
         setCurrentStep(2)
     }

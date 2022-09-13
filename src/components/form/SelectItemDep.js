@@ -1,6 +1,9 @@
 import departement from "../../data/departement.json"
+import {useState} from 'react'
 
-export default function SelectItemDep({title, region, setDep}){
+export default function SelectItemDep({title, region, setDep, excludedDepartement}){
+
+
     return(
         <div className="md:w-2/4">
             <div className=""><span className="text-dark-blue text-[17px] font-semibold tracking-wide">{title}</span><span className="text-light-green font-[17px] font-semibold">*</span></div>
