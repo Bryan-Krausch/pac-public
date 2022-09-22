@@ -152,7 +152,7 @@ export default function SecondStep({currentStep, setCurrentStep, region, setRegi
                 </div>
                     {departementHasError && 
                         <div>
-                            <p className="text-red-500 font-semibold text-center">Votre département n'est pas éligible</p>
+                            <p className="text-red-500 font-semibold text-center">Désolé , votre département n'est pas éligible.</p>
                         </div>
                     }
             </div>
