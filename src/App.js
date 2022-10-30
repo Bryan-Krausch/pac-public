@@ -58,9 +58,9 @@ function App({routes}) {
       </main>
       <footer className='flex items-center justify-center py-8 border-t-[1px] border-dark-blue'>
         <ul className='flex flex-wrap w-full justify-center text-[16px] text-dark-blue font-semibold md:mx-auto'>
-          <li className='px-[8px]'><button onClick={() => setLegalModal(true)}><span>Mentions légales</span></button></li>
-          <li className='px-[8px]'><button onClick={() => setConfidentialModal(true)}><span>Politique de confidentialité</span></button></li>
-          <li className='px-[8px]'><button onClick={() => setCgu(true)}><span>CGU</span></button></li>
+          <li className='px-[8px]'><button ><span>Mentions légales</span></button></li>
+          <li className='px-[8px]'><button ><span>Politique de confidentialité</span></button></li>
+          <li className='px-[8px]'><button ><span>CGU</span></button></li>
         </ul>
       </footer>
     </div>
